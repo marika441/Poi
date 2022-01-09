@@ -74,3 +74,8 @@ gem 'momentjs-rails'
 gem 'pry-byebug'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
