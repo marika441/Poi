@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -62,6 +63,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'slim-rails'
+gem 'html2slim'
 gem 'devise'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
@@ -71,6 +73,10 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'pry-byebug'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
