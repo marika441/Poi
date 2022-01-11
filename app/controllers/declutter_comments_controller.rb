@@ -1,16 +1,20 @@
 class DeclutterCommentsController < ApplicationController
 
   def create
-    declutter = Declutter.find(params[:declutter_id])
-    comment = current_user.declutter_comments.new(declutter_comment_params)
-    comment.declutter_id = declutter.id
-    comment.save
-    redirect_to declutter_path(declutter)
+    @declutter = Declutter.find(params[:declutter_id])
+    @declutter_comment = DeclutterComment.new(declutter_comment_params)
+    @declutter_comment.declutter_id = @declutter.id
+    @declutter_comment.user_id = current_user.id
+    @declutter_comment.save
+    # render先にjsファイルを指定
+    render :declutter_comments
   end
 
   def destroy
+    @declutter = Declutter.find(params[:declutter_id])
     DeclutterComment.find_by(id: params[:id]).destroy
-    redirect_to declutter_path(params[:declutter_id])
+    # render先にjsファイルを指定
+    render :declutter_comments
   end
 
   private
