@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  thing_name: MyText
+  thing_image_id: MyString
+  caption: MyText
+  user_id: 1
+  point: 1
+  start_date: 2022-01-10 13:21:24
+  end_date: 2022-01-10 13:21:24
+
+two:
+  thing_name: MyText
+  thing_image_id: MyString
+  caption: MyText
+  user_id: 1
+  point: 1
+  start_date: 2022-01-10 13:21:24
+  end_date: 2022-01-10 13:21:24

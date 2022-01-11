@@ -1,0 +1,12 @@
+.container
+ = attachment_image_tag @declutter, :thing_image, size: "300x300"
+ p 手放したモノ
+ = @declutter.thing_name
+ p 説明
+ = @declutter.caption
+ p ユーザーネーム
+ = @declutter.user.name
+ br
+ - if @declutter.user == current_user
+  = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
+  = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
