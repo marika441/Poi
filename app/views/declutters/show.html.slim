@@ -21,18 +21,8 @@
    = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
    = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
 
- .comment-section
-  p
-    | コメント件数：
-    = @declutter.declutter_comments.count
-  - @declutter.declutter_comments.each do |declutter_comment|
-   = declutter_comment.user.name
-   = declutter_comment.comment
-   - if declutter_comment.user == current_user
-    = link_to "削除", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
-   br
+ #comments_area
+  = render "declutter_comments/comments", declutter: @declutter
+
  .comment-send
-  = form_with(model:[@declutter, @declutter_comment], local: true) do |f|
-   = f.text_area :comment, placeholder: "コメントをここに"
-   br
-   = f.submit "送信", class: "btn btn-success"
+  = render "declutter_comments/form", declutter: @declutter, declutter_comment: @declutter_comment

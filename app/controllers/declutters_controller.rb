@@ -38,7 +38,7 @@ class DecluttersController < ApplicationController
   private
 
   def declutter_params
-    params.require(:declutter).permit(:thing_name, :thing_image, :caption)
+    params.require(:declutter).permit(:thing_name, :thing_image, :caption, :user_id)
   end
 
 end
