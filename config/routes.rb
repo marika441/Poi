@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  
+
+  devise_for :users
   root to: 'homes#top'
   get "/home/about" => "homes#about"
-  devise_for :users
-  resources :declutters
- 
+  resources :declutters do
+    resources :declutter_comments, only: [:create, :destroy]
+  end
+
 end

@@ -7,9 +7,9 @@
         .card-body
           p.card-text 手放したモノ
           = declutter.thing_name
-
           p.card-text 説明
           = declutter.caption
-
           p.card-text ユーザーネーム
           = declutter.user.name
+          p.card-text
+          = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
