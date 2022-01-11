@@ -11,6 +11,12 @@
     | ユーザー名:
     = @declutter.user.name
   br
+  - if @declutter.liked_by?(current_user)
+    p
+      = link_to @declutter.likes.count, declutter_likes_path(@declutter), method: :delete, class: "fas fa-heart"
+  - else
+    p
+      = link_to @declutter.likes.count, declutter_likes_path(@declutter), method: :post, class: "far fa-heart"
   - if @declutter.user == current_user
    = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
    = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
@@ -25,7 +31,6 @@
    - if declutter_comment.user == current_user
     = link_to "削除", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
    br
-    
  .comment-send
   = form_with(model:[@declutter, @declutter_comment], local: true) do |f|
    = f.text_area :comment, placeholder: "コメントをここに"
