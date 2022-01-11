@@ -13,3 +13,9 @@
           = declutter.user.name
           p.card-text
           = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
+          - if declutter.liked_by?(current_user)
+            p
+              = link_to declutter.likes.count, declutter_likes_path(declutter), method: :delete, class: "fas fa-heart"
+          - else
+            p
+              = link_to declutter.likes.count, declutter_likes_path(declutter), method: :post, class: "far fa-heart"

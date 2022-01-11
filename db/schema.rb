@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_11_040152) do
+ActiveRecord::Schema.define(version: 2022_01_11_055229) do
 
   create_table "declutter_comments", force: :cascade do |t|
     t.text "comment"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2022_01_11_040152) do
     t.integer "point"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "declutter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
