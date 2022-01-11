@@ -16,6 +16,7 @@ class DecluttersController < ApplicationController
 
   def show
     @declutter = Declutter.find(params[:id])
+    @declutter_comment = DeclutterComment.new
   end
 
   def edit

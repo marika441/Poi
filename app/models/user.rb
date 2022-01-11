@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :declutters, dependent: :destroy
+  has_many :declutter_comments, dependent: :destroy
 
 end
