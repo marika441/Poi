@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_051810) do
+ActiveRecord::Schema.define(version: 2022_01_10_132124) do
+
+  create_table "declutters", force: :cascade do |t|
+    t.text "thing_name"
+    t.string "thing_image_id"
+    t.text "caption"
+    t.integer "user_id"
+    t.integer "point"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

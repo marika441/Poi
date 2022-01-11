@@ -1,0 +1,15 @@
+.container
+  .row
+    - @declutters.each do |declutter|
+      .card[style="width: 18rem;"]
+        = link_to declutter_path(declutter.id) do
+          = attachment_image_tag declutter, :thing_image, class: "card-img-top"
+        .card-body
+          p.card-text 手放したモノ
+          = declutter.thing_name
+
+          p.card-text 説明
+          = declutter.caption
+
+          p.card-text ユーザーネーム
+          = declutter.user.name

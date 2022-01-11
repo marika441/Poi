@@ -1,0 +1,11 @@
+.container
+  h1 今日の断捨離
+  = form_with model: @declutter, local:true do |f|
+   h4 写真
+   = f.attachment_field :thing_image
+   h4 手放すモノ
+   = f.text_field :thing_name
+   h4 説明
+   = f.text_area :caption
+   br
+   = f.submit "手放す", class: "btn btn-success"
