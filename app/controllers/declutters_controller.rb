@@ -1,4 +1,5 @@
 class DecluttersController < ApplicationController
+
   def new
     @declutter = Declutter.new
   end
@@ -38,7 +39,7 @@ class DecluttersController < ApplicationController
   private
 
   def declutter_params
-    params.require(:declutter).permit(:thing_name, :thing_image, :caption, :user_id)
+    params.require(:declutter).permit(:thing_name, :thing_image, :caption)
   end
 
 end

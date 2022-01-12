@@ -11,12 +11,12 @@
     | ユーザー名:
     = @declutter.user.name
   br
-  - if @declutter.liked_by?(current_user)
-    p
-      = link_to @declutter.likes.count, declutter_likes_path(@declutter), method: :delete, class: "fas fa-heart"
-  - else
-    p
-      = link_to @declutter.likes.count, declutter_likes_path(@declutter), method: :post, class: "far fa-heart"
+  |  <div id="like_btn_
+  = @declutter.id
+  | ">
+  = render "likes/like-btn", declutter: @declutter
+
+ .edit-btn
   - if @declutter.user == current_user
    = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
    = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
