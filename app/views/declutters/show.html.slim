@@ -1,0 +1,28 @@
+.container
+ .post-details
+  = attachment_image_tag @declutter, :thing_image, size: "300x300"
+  p
+    | 手放したモノ:
+    = @declutter.thing_name
+  p
+    | 説明:
+    = @declutter.caption
+  p
+    | ユーザー名:
+    = @declutter.user.name
+  br
+  |  <div id="like_btn_
+  = @declutter.id
+  | ">
+  = render "likes/like-btn", declutter: @declutter
+
+ .edit-btn
+  - if @declutter.user == current_user
+   = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
+   = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
+
+ #comments_area
+  = render "declutter_comments/comments", declutter: @declutter
+
+ .comment-send
+  = render "declutter_comments/form", declutter: @declutter, declutter_comment: @declutter_comment

@@ -1,0 +1,2 @@
+module DeclutterCommentsHelper
+end
