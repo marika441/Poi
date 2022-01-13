@@ -5,15 +5,20 @@
           = link_to declutter_path(declutter.id) do
             = attachment_image_tag declutter, :thing_image, class: "card-img-top"
           .card-body
-            p.card-text 手放したモノ
-            = declutter.thing_name
-            p.card-text 説明
-            = declutter.caption
-            p.card-text ユーザーネーム
-            = declutter.user.name
             p.card-text
-            = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
-            |  <div id="like_btn_
-            = declutter.id
-            | ">
-            = render "likes/like-btn", declutter: declutter
+              | 手放したモノ
+              br
+              = declutter.thing_name
+            p.card-text
+              | 説明
+              br
+              = declutter.caption
+            p.card-text
+              | neme:
+              = declutter.user.name
+            p.card-text
+              = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
+              |  <div id="like_btn_
+              = declutter.id
+              | ">
+              = render "likes/like-btn", declutter: declutter
