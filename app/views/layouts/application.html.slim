@@ -29,6 +29,8 @@ html
                 = link_to "みんなのPoi!", declutters_path, class: "nav-link"
               li.nav-item
                 = link_to "今日のPoi!", new_declutter_path, class: "nav-link"
+              li.nav-item
+                = link_to "Users", users_path, class: "nav-link"
             - else
               li.nav-item
                 = link_to "新規登録", new_user_registration_path, class: "nav-link"
