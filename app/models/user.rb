@@ -7,5 +7,7 @@ class User < ApplicationRecord
   has_many :declutters, dependent: :destroy
   has_many :declutter_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  
+  attachment :profile_image
 
 end

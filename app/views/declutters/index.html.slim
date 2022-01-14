@@ -16,6 +16,7 @@
             p.card-text
               | neme:
               = declutter.user.name
+              = attachment_image_tag declutter.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpeg",class: "rounded-circle"
             p.card-text
               = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
               |  <div id="like_btn_
