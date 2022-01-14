@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :declutter_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+  resources :users, only:[:index, :show, :edit, :update]
 
 end
