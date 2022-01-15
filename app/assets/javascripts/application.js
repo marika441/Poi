@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery3
+//= require moment
+//= require fullcalendar
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require moment
-//= require fullcalendar
 //= require_tree .
+

@@ -13,15 +13,18 @@
     .col-md-8
       .row
         - @declutters.each do |declutter|
-          .col-md-3
-            = link_to declutter_path(declutter.id) do
-              = attachment_image_tag declutter, :thing_image
-            p
-              | 手放したモノ：
-              = declutter.thing_name
-            p
-              | 説明：
-              = declutter.caption
-            p
-              | name：
-              = declutter.user.name
+          .col-md-4
+            .card[style="width: 15rem;"]
+              = link_to declutter_path(declutter.id) do
+                = attachment_image_tag declutter, :thing_image, class: "card-img-top"
+              .card-body
+                p.card-text
+                  | 手放したモノ：
+                  = declutter.title
+                p.card-text
+                  | 説明：
+                  = declutter.caption
+                p.card-text
+                  | name：
+                  = declutter.user.name
+        #calendar
