@@ -4,8 +4,12 @@
    h4 写真
    = f.attachment_field :thing_image
    h4 手放すモノ
-   = f.text_field :thing_name
+   = f.text_field :title
    h4 説明
    = f.text_area :caption
+   h4 開始日時
+   = f.datetime_select :start_date
+   h4 終了日時
+   =f.datetime_select :end_date
    br
    = f.submit "手放す", class: "btn btn-success"

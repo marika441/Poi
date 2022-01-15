@@ -17,28 +17,3 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-
-#global-head {
-    position: fixed;
-    color: #033560;
-    width: 260px;
-    text-align: center;
-    padding-top: 60px;
-    z-index: 100;
-}
-
-#sidebar {
-    font-size: 15px;
-    padding-top: 120px;
-    width: 260px;
-    height: 100%;
-    position: fixed;
-    color: #033560;
-    background: #fff;
-    text-align: center;
-}
-
-#global-nav ul {
-    list-style: none;
-    margin-left: 0;
-}

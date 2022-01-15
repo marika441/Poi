@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_043318) do
+ActiveRecord::Schema.define(version: 2022_01_14_145127) do
 
   create_table "declutter_comments", force: :cascade do |t|
     t.text "comment"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_01_14_043318) do
   end
 
   create_table "declutters", force: :cascade do |t|
-    t.text "thing_name"
+    t.string "title"
     t.string "thing_image_id"
     t.text "caption"
     t.integer "user_id"

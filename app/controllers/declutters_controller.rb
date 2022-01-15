@@ -13,6 +13,8 @@ class DecluttersController < ApplicationController
 
   def index
     @declutters = Declutter.all
+    # マイページで自分の投稿のみカレンダーに表示
+    @mydeclutters = Declutter.where(user_id: current_user.id)
   end
 
   def show
@@ -39,7 +41,7 @@ class DecluttersController < ApplicationController
   private
 
   def declutter_params
-    params.require(:declutter).permit(:thing_name, :thing_image, :caption)
+    params.require(:declutter).permit(:title, :thing_image, :caption, :start_date, :end_date, :user_id)
   end
 
 end
