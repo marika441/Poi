@@ -15,6 +15,7 @@
   = @declutter.id
   | ">
   = render "likes/like-btn", declutter: @declutter
+  = render "bookmarks/bookmark-btn", declutter: @declutter
 
  .edit-btn
   - if @declutter.user == current_user

@@ -15,6 +15,7 @@ class DecluttersController < ApplicationController
     @declutters = Declutter.all
     # マイページで自分の投稿のみカレンダーに表示
     @mydeclutters = Declutter.where(user_id: current_user.id)
+    # @mydeclutters = User.joins(:declutters).where(declutters: { user_id: current_user.id })
   end
 
   def show

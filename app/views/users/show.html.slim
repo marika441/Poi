@@ -8,8 +8,10 @@
         = @user.introduction
       - if @user.id == current_user.id
         p
-          = link_to "", edit_user_path(@user), class:"btn btn-outline-secondary btn-block fas fa-user-cog"
-
+          = link_to "", edit_user_path(@user), class:"btn btn-secondary btn-{themecolor} rounded-circle p-3 fas fa-user-cog"
+        p
+          = link_to "", bookmarks_path, class:"btn btn-secondary btn-{themecolor} rounded-circle p-3 fas fa-bookmark"
+          
     .col-md-8
       .row
         - @declutters.each do |declutter|
