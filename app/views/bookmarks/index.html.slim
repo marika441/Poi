@@ -1,0 +1,17 @@
+.container
+  .row
+    - @bookmarks.each do |bookmark|
+      .col-md-3
+        .card[style="width: 15rem;"]
+          = link_to declutter_path(bookmark.declutter) do
+            = attachment_image_tag bookmark.declutter, :thing_image, class: "card-img-top"
+          .card-body
+            p.card-text
+              | 手放したモノ：
+              = bookmark.declutter.title
+            p.card-text
+              | 説明：
+              = bookmark.declutter.caption
+            p.card-text
+              | name：
+              = bookmark.declutter.user.name

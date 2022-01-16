@@ -1,0 +1,4 @@
+- if declutter.bookmarked_by?(current_user)
+  = link_to declutter.bookmarks.count,declutter_bookmarks_path(declutter), method: :delete, class: "fas fa-bookmark"
+- else
+  = link_to declutter.bookmarks.count,declutter_bookmarks_path(declutter), method: :post, class: "far fa-bookmark"
