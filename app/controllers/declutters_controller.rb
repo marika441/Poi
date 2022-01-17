@@ -7,6 +7,20 @@ class DecluttersController < ApplicationController
   def create
     @declutter = Declutter.new(declutter_params)
     @declutter.user_id = current_user.id
+    user = User.find(current_user.id)
+
+    totalExp = user.exp_point
+    totalExp += @declutter.point
+
+    user.exp_point = totalExp
+    user.update(exp_point: totalExp)
+
+    nextlevel = NextLevel.find_by(level: user.level + 1);
+
+    if nextlevel.thresold <= user.exp_point
+      user.level = user.level + 1
+      user.update(level: user.level)
+    end
     @declutter.save
     redirect_to declutters_path
   end
@@ -42,7 +56,7 @@ class DecluttersController < ApplicationController
   private
 
   def declutter_params
-    params.require(:declutter).permit(:title, :thing_image, :caption, :start_date, :end_date, :user_id)
+    params.require(:declutter).permit(:title, :thing_image, :caption, :point, :start_date, :end_date, :user_id)
   end
 
 end

@@ -13,7 +13,7 @@ html
       .container-fluid
         a.navbar-brand
           | Poi!
-
+          
         button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
         #navbarSupportedContent.collapse.navbar-collapse
@@ -38,6 +38,6 @@ html
                 = link_to "ログイン", new_user_session_path, class: "nav-link"
               li.nav-item
                 = link_to "about", home_about_path, class: "nav-link"
-
+                
   body[data-turbolinks="false"]
     = yield

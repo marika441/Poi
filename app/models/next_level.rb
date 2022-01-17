@@ -1,0 +1,2 @@
+class NextLevel < ApplicationRecord
+end
