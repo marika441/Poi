@@ -17,3 +17,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+// ページ全体のフォント
+body {
+  font-family: 'Vollkorn', serif;
+}
