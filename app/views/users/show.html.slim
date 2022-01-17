@@ -6,12 +6,16 @@
         = @user.name
       h3
         = @user.introduction
+      h3
+        | Level.
+        = @user.level
+
       - if @user.id == current_user.id
         p
           = link_to "", edit_user_path(@user), class:"btn btn-secondary btn-{themecolor} rounded-circle p-3 fas fa-user-cog"
         p
           = link_to "", bookmarks_path, class:"btn btn-secondary btn-{themecolor} rounded-circle p-3 fas fa-bookmark"
-          
+
     .col-md-8
       .row
         - @declutters.each do |declutter|
