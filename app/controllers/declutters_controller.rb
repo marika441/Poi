@@ -8,15 +8,15 @@ class DecluttersController < ApplicationController
     @declutter = Declutter.new(declutter_params)
     @declutter.user_id = current_user.id
     user = User.find(current_user.id)
-
+    # 現在のユーザーの経験値と得られた投稿ポイントを加算
     totalExp = user.exp_point
     totalExp += @declutter.point
-
+    # 加算した経験値をuserの総経験値を示す変数に入れ直して更新
     user.exp_point = totalExp
     user.update(exp_point: totalExp)
-
+    # nextlevelモデルから現在のuserレベルよりも1高いレコードを取得
     nextlevel = NextLevel.find_by(level: user.level + 1);
-
+    # 探してきたレコードの閾値よりもユーザーの総経験値が高い場合は、レベル1増やして更新
     if nextlevel.thresold <= user.exp_point
       user.level = user.level + 1
       user.update(level: user.level)
