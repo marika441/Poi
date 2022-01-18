@@ -1,29 +1,34 @@
-.container
- .post-details
-  = attachment_image_tag @declutter, :thing_image, size: "300x300"
-  p
-    | 手放したモノ:
-    = @declutter.title
-  p
-    | 説明:
-    = @declutter.caption
-  p
-    | ユーザー名:
-    = @declutter.user.name
-  br
-  |  <div id="like_btn_
-  = @declutter.id
-  | ">
-  = render "likes/like-btn", declutter: @declutter
-  = render "bookmarks/bookmark-btn", declutter: @declutter
+.container.mt-5
+ .row
+  .col-md-4.mx-auto
+   .card[style="width: 20rem;"]
+    = attachment_image_tag @declutter, :thing_image, class: "card-img-top"
+    .card-body
+     .row.card-link
+      p
+      | <div id="like_btn_
+      = @declutter.id
+      | ">
+      = render "likes/like-btn", declutter: @declutter
+      | </div>
+      p
+       = render "bookmarks/bookmark-btn", declutter: @declutter
+     h1.card-title.text-center
+      = @declutter.title
+     .card-text.text-center
+      = @declutter.caption
+     .card-text.text-right
+      = link_to user_path(@declutter.user.id) do
+       = @declutter.user.name
+       = attachment_image_tag @declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
 
- .edit-btn
-  - if @declutter.user == current_user
-   = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
-   = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
+   .edit-btn
+    - if @declutter.user == current_user
+     = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
+     = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
 
- #comments_area
-  = render "declutter_comments/comments", declutter: @declutter
+   #comments_area
+    = render "declutter_comments/comments", declutter: @declutter
 
- .comment-send
-  = render "declutter_comments/form", declutter: @declutter, declutter_comment: @declutter_comment
+   .comment-send
+    = render "declutter_comments/form", declutter: @declutter, declutter_comment: @declutter_comment
