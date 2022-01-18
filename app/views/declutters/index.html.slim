@@ -1,28 +1,45 @@
-.container
+.container.mt-5
   .row
-    - @declutters.each do |declutter|
-        .card[style="width: 18rem;"]
-          = link_to declutter_path(declutter.id) do
-            = attachment_image_tag declutter, :thing_image, class: "card-img-top"
-          .card-body
-            .card-text
-              | 手放したモノ
-              br
-              = declutter.title
-            .card-text
-              | 説明
-              br
-              = declutter.caption
-            .card-text
-              | neme:
-              = declutter.user.name
-              = link_to user_path(declutter.user.id) do
-                = attachment_image_tag declutter.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpeg", size:"60x60", class: "rounded-circle"
-            .card-text
-              = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
-              |  <div id="like_btn_
-              = declutter.id
-              | ">
-              = render "likes/like-btn", declutter: declutter
-            .card-text
-              = render "bookmarks/bookmark-btn", declutter: declutter
+    .col-md-9
+      .row
+        - @declutters.each do |declutter|
+          .card[style="width: 16rem;"]
+            = link_to declutter_path(declutter.id) do
+              = attachment_image_tag declutter, :thing_image, class: "card-img-top"
+            .card-body
+              .row.card-link
+                p
+                  = link_to"#{declutter.declutter_comments.count}", declutter_path(declutter.id), class: "far fa-comment"
+                | <div id="like_btn_
+                = declutter.id
+                | ">
+                = render "likes/like-btn", declutter: declutter
+                | </div>
+                p
+                  = render "bookmarks/bookmark-btn", declutter: declutter
+              h1.card-title.text-center
+                = declutter.title
+              .card-text.text-center
+                = declutter.caption
+              .card-text.text-right
+                = link_to user_path(declutter.user.id) do
+                  = declutter.user.name
+                  = attachment_image_tag declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
+
+    .col-md-3
+      h3
+        | ランキング
+      - @user_ranks.each.with_index(1) do |user, i|
+        - case i when 1
+          i.fas.fa-crown[style="color: gold;"]
+        - when 2
+          i.fas.fa-crown[style="color: silver;"]
+        - when 3
+          i.fas.fa-crown[style="color: orange;"]
+        |  第
+        = i
+        | 位
+        | Lv.
+        = user[1]
+        = user[2]
+        br
