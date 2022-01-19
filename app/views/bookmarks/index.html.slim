@@ -1,17 +1,28 @@
-.container
+.container.mt-5
+  h2
+    | ブックマーク一覧
   .row
     - @bookmarks.each do |bookmark|
-      .col-md-3
-        .card[style="width: 15rem;"]
+      .col-md-3.mt-5
+        .card[style="width: 14rem;"]
           = link_to declutter_path(bookmark.declutter) do
-            = attachment_image_tag bookmark.declutter, :thing_image, class: "card-img-top"
+            = attachment_image_tag bookmark.declutter, :thing_image, class: "card-img-top-height"
           .card-body
-            p.card-text
-              | 手放したモノ：
-              = bookmark.declutter.title
-            p.card-text
-              | 説明：
-              = bookmark.declutter.caption
-            p.card-text
-              | name：
-              = bookmark.declutter.user.name
+              .row.card-link
+                p
+                  = link_to"#{bookmark.declutter.declutter_comments.count}", declutter_path(bookmark.declutter.id), class: "far fa-comment text-muted"
+                | <div id="like_btn_
+                = bookmark.declutter.id
+                | ">
+                = render "likes/like-btn", declutter: bookmark.declutter
+                | </div>
+                p
+                  = render "bookmarks/bookmark-btn", declutter: bookmark.declutter
+              h1.card-title.text-center
+                = bookmark.declutter.title
+              .card-text.text-center
+                = bookmark.declutter.caption
+              .card-text.text-right
+                = link_to user_path(bookmark.declutter.user.id) do
+                  = bookmark.declutter.user.name
+                  = attachment_image_tag bookmark.declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"

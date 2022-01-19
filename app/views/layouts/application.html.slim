@@ -12,7 +12,7 @@ html
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container-fluid
         a.navbar-brand
-          | Poi!
+          = link_to image_tag("logo.png", height:"100px"), root_path, class:"header-logo"
 
         button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
@@ -35,7 +35,7 @@ html
               li.nav-item
                 = link_to "新規登録", new_user_registration_path, class: "nav-link"
               li.nav-item
-                = link_to "ログイン", new_user_session_path, class: "nav-link"
+                = link_to "Log In", new_user_session_path, class: "nav-link"
               li.nav-item
                 = link_to 'ゲストログイン(閲覧用)',homes_guest_sign_in_path, class: "nav-link", method: :post
               li.nav-item
