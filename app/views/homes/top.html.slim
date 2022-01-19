@@ -1,3 +1,7 @@
-.container
-  .row
-    h1 トップページ
+#container
+  = image_tag 'room_top.jpeg', class: "top_img"
+  .row.mt-5
+  h2
+    = link_to "新規登録", new_user_registration_path, class:"btn btn-success"
+    = link_to "ログイン", new_user_session_path, class:"btn btn-success"
+    = link_to 'ゲストログイン(閲覧用)',homes_guest_sign_in_path, class:"btn btn-success"

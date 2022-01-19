@@ -1,32 +1,36 @@
-.container.mt-5
+.container-top-color
+  h2.declutter_title
+    | みんなのPoi!
+.container
   .row
-    .col-md-9
+    .col-md-10
       .row
         - @declutters.each do |declutter|
-          .card[style="width: 16rem;"]
-            = link_to declutter_path(declutter.id) do
-              = attachment_image_tag declutter, :thing_image, class: "card-img-top"
-            .card-body
-              .row.card-link
-                p
-                  = link_to"#{declutter.declutter_comments.count}", declutter_path(declutter.id), class: "far fa-comment"
-                | <div id="like_btn_
-                = declutter.id
-                | ">
-                = render "likes/like-btn", declutter: declutter
-                | </div>
-                p
-                  = render "bookmarks/bookmark-btn", declutter: declutter
-              h1.card-title.text-center
-                = declutter.title
-              .card-text.text-center
-                = declutter.caption
-              .card-text.text-right
-                = link_to user_path(declutter.user.id) do
-                  = declutter.user.name
-                  = attachment_image_tag declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
+          .col-md-3.mt-5
+            .card.card-height[style="width: 14rem;"]
+              = link_to declutter_path(declutter.id) do
+                = attachment_image_tag declutter, :thing_image, class: "card-img-top-height"
+              .card-body
+                .row.card-link
+                  p
+                    = link_to"#{declutter.declutter_comments.count}", declutter_path(declutter.id), class: "far fa-comment text-muted"
+                  | <div id="like_btn_
+                  = declutter.id
+                  | ">
+                  = render "likes/like-btn", declutter: declutter
+                  | </div>
+                  p
+                    = render "bookmarks/bookmark-btn", declutter: declutter
+                h1.card-title.text-center
+                  = declutter.title
+                .card-text.text-center
+                  = declutter.caption
+                .card-text.text-right
+                  = link_to user_path(declutter.user.id) do
+                    = declutter.user.name
+                    = attachment_image_tag declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
 
-    .col-md-3
+    .col-md-2.mt-5
       h3
         | ランキング
       - @user_ranks.each.with_index(1) do |user, i|
