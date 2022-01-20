@@ -26,7 +26,7 @@ class DecluttersController < ApplicationController
   end
 
   def index
-    @declutters = Declutter.all
+    @declutters = Declutter.page(params[:page]).reverse_order.per(9)
     # ユーザーのレベルごとのランキングを表示
     @user_ranks = User.order(level: :desc).limit(3).pluck(:id, :level, :name)
     # マイページで自分の投稿のみカレンダーに表示

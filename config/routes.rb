@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get "/homes/about" => "homes#about"
+  get "/homes/my_calender" => "homes#my_calender"
   get "/bookmarks" => "bookmarks#index"
   post "/homes/guest_sign_in", to: "homes#new_guest"
 

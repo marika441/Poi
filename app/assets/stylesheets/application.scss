@@ -17,11 +17,37 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Vollkorn&display=swap');
 
 // ページ全体の設定
 body {
-  font-family: 'Vollkorn', serif;
+  font-family: 'Playfair Display', serif;
+  background-color: #eae5de;
+}
+
+// kaminariの設定
+.page-link {
+  border: none;
+  color: #6f6e6e;
+  background-color: #f3f0e9;
+  margin-top: 30px;
+  margin-left: 10px;
+  border-radius: 20px;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #434343;
+    border-color: #007bff;
+    border-radius: 20px;
+}
+.page-item:last-child .page-link {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.page-item:first-child .page-link {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 // topページ
@@ -33,7 +59,7 @@ body {
 // 新規登録・ログインページ
 .form_title {
   text-align: center;
-  border-bottom:solid 2px #e5e5e5;
+  border-bottom:solid 1px #434343;
 }
 .form_main {
   text-align: center;
@@ -52,11 +78,20 @@ body {
 }
 
 // 投稿一覧ページ
+.rank_info {
+  text-align: center;
+  h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family :Quicksand, sans-serif;
+  }
+}
 .card-height {
   height: 100%;
 }
 .card-img-top-height {
-  height: 14rem;
+  height: 100%;
+  width: 100%;
 }
 .image1 {
   background-image: url(room.jpg);
@@ -81,4 +116,25 @@ body {
 // マイページ
 .user_info {
   text-align: center;
+  h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family :Quicksand, sans-serif;
+  }
+}
+.link_group {
+  a {
+    margin: 10px;
+  }
+}
+
+// ユーザー一覧ページ
+.table_title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.table {
+  .btn {
+    border-radius: 20px;
+  }
 }
