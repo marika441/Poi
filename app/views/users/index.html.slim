@@ -1,15 +1,7 @@
-.container
-  h2
+.container.mt-5
+  h2.table_title
     | Users
   table.table
-    thead
-      tr
-        th
-          | image
-        th
-          | name
-        th
-          | introduction
     - @users.each do |user|
       tbody
         tr
@@ -19,4 +11,13 @@
           td
             = user.name
           td
+            | Lv.
+            = user.level
+          td
             = user.introduction
+          td
+            - if current_user != user
+              - if current_user.following?(user)
+                = link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-success"
+              - else
+                = link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-outline-success"

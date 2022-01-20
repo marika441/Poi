@@ -5,6 +5,9 @@ class HomesController < ApplicationController
 
   def about
   end
+  
+  def my_calender
+  end
 
   def new_guest
     # emailでユーザーが見つからない場合に作成

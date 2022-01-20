@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @declutters = @user.declutters.all
+    @declutters = @user.declutters.page(params[:page]).reverse_order.per(6)
   end
 
   def edit
