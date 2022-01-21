@@ -1,10 +1,10 @@
 .container.mt-5
-  h2
+  h2.form_title
     | ブックマーク一覧
   .row
     - @bookmarks.each do |bookmark|
       .col-md-3.mt-5
-        .card[style="width: 14rem;"]
+        .card.card-height[style="width: 100%;"]
           = link_to declutter_path(bookmark.declutter) do
             = attachment_image_tag bookmark.declutter, :thing_image, class: "card-img-top-height"
           .card-body

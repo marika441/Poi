@@ -1,17 +1,21 @@
-.container
-  h2 編集
-  = form_with model:@declutter, local:true do |f|
-    .form-group
-      = f.label :写真
-      br
-      = f.attachment_field :thing_image
-    .form-group
-      = f.label :手放したモノ
-      br
-      = f.text_field :title
-    .form-group
-      = f.label :説明
-      br
-      = f.text_area :caption
-      br
-      = f.submit "変更を保存", class: "btn btn-secondary"
+.container.mt-5
+  .row
+    .col-md-12
+      h2.form_title
+        | 編集
+      .form_main
+        = form_with model:@declutter, local:true do |f|
+          .form-group
+            = f.label :写真
+            br
+            = f.attachment_field :thing_image
+          .form-group
+            = f.label :手放したモノ
+            br
+            = f.text_field :title
+          .form-group
+            = f.label :説明
+            br
+            = f.text_area :caption
+            br
+            = f.submit "変更を保存", class: "form_btn"

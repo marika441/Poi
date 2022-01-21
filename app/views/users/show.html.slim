@@ -30,7 +30,7 @@
       .row
         - @declutters.each do |declutter|
           .col-md-4.mt-3
-            .card.card-height[style="width: 14rem;"]
+            .card.card-height[style="width: 100%;"]
               = link_to declutter_path(declutter.id) do
                 = attachment_image_tag declutter, :thing_image, class: "card-img-top-height"
               .card-body
@@ -48,5 +48,5 @@
                   = declutter.title
                 .card-text.text-center
                   = declutter.caption
-                    
+
       = paginate @declutters

@@ -1,7 +1,7 @@
 .container.mt-5
  .row
   .col-md-4.mx-auto
-   .card[style="width: 20rem;"]
+   .card[style="width: 100%;"]
     = attachment_image_tag @declutter, :thing_image, class: "card-img-top"
     .card-body
      .row.card-link
@@ -22,13 +22,13 @@
        = @declutter.user.name
        = attachment_image_tag @declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
 
-   .edit-btn
+   .edit_btn
     - if @declutter.user == current_user
-     = link_to "編集", edit_declutter_path(@declutter), class: "btn btn-success"
-     = link_to "削除", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger"
+     = link_to "", edit_declutter_path(@declutter), class: "btn fas fa-edit"
+     = link_to "", declutter_path(@declutter), method: :delete, data: {confirm: "削除しますか？"}, class: "btn fas fa-trash-alt"
 
    #comments_area
     = render "declutter_comments/comments", declutter: @declutter
 
-   .comment-send
+   .comment_form
     = render "declutter_comments/form", declutter: @declutter, declutter_comment: @declutter_comment
