@@ -93,16 +93,6 @@ body {
   height: 100%;
   width: 100%;
 }
-.image1 {
-  background-image: url(room.jpg);
-}
-.image2 {
-  background-image: url(room2.jpg);
-}
-.container-top-color {
-  height: 300px;
-  background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
-}
 .declutter_title {
   position: absolute;
   color: white;
@@ -111,6 +101,16 @@ body {
   font-family :Quicksand, sans-serif;
   top: 250px;
   left: 45%;
+}
+.image1 {
+  background-image: url(room.jpg);
+}
+.image2 {
+  background-image: url(room2.jpg);
+}
+#container {
+  height: 300px;
+  width : 100%;
 }
 
 // マイページ
@@ -137,4 +137,15 @@ body {
   .btn {
     border-radius: 20px;
   }
+}
+
+// 投稿詳細ページ
+.edit_btn {
+  text-align: right;
+}
+.comment_form {
+  margin-top: 30px;
+}
+#declutter_comment_comment {
+  width : 100%;
 }
