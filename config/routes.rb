@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'relationships/followings'
-  get 'relationships/followers'
+  get "relationships/followings"
+  get "relationships/followers"
   devise_for :users
-  root to: 'homes#top'
+  root to: "homes#top"
   get "/homes/about" => "homes#about"
   get "/homes/my_calender" => "homes#my_calender"
   get "/bookmarks" => "bookmarks#index"
