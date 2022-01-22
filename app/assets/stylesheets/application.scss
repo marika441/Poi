@@ -51,9 +51,47 @@ body {
 }
 
 // topページ
-.top_img {
+@media screen and (max-width: 480px) {
+  #top_img_left {
+  max-width: 100%;
+  max-height: 400px;
+}
+}
+#top_img_left {
   width: 100%;
-  height: 550px;
+  height: 700px;
+}
+.image1 {
+  background-image: url(room_top.jpg);
+}
+.image2 {
+  background-image: url(room2.jpg);
+}
+.image3 {
+  background-image: url(room.jpg);
+}
+.top_img_right {
+  text-align: center;
+  h1 {
+    margin-top: 150px;
+    text-align: center;
+    font-weight: bold;
+    font-size : 90px;
+    color: #434343;
+    font-family :Quicksand, sans-serif;
+  }
+  .btn {
+    margin: 0 5px;
+    padding: 5px 30px;
+    border-radius: 20px;
+  }
+  .top_form_btn {
+    margin-top: 60px;
+  }
+  p {
+    margin-top: 150px;
+    margin-bottom: 2px;
+  }
 }
 
 // 新規登録・ログインページ
@@ -101,16 +139,6 @@ body {
   font-family :Quicksand, sans-serif;
   top: 250px;
   left: 45%;
-}
-.image1 {
-  background-image: url(room.jpg);
-}
-.image2 {
-  background-image: url(room2.jpg);
-}
-#container {
-  height: 300px;
-  width : 100%;
 }
 
 // マイページ
