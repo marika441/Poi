@@ -50,6 +50,21 @@ body {
     border-bottom-left-radius: 20px;
 }
 
+// attachment_filedのデザイン(共通)
+.profile_image_btn {
+  display: none;
+}
+#img_field {
+  font-size: 15px;
+  margin: 0 auto;
+  background-color: #FFFEF9;
+  border-radius: 10px;
+  width: 130px;
+  height: 35px;
+  line-height: 35px;
+  box-shadow: 2px 2px gray;
+}
+
 // topページ
 @media screen and (max-width: 480px) {
   #top_img_left {

@@ -8,9 +8,12 @@
           .form-group
             = attachment_image_tag @user, :profile_image, :fill,200,200, fallback:"no_image.jpeg", size:"200x200", class:"rounded-circle"
           .form-group
-            = f.label:Image
-            br
-            = f.attachment_field :profile_image, placeholder: "プロフィール画像"
+            /デフォルトのデザインを変更
+            /#img_field内をクリックしたら#fileもクリックする
+            = f.attachment_field :profile_image, id:"file", class:"profile_image_btn"
+            #img_field[onclick="$('#file').click()"]
+              i.far.fa-images
+                |  画像を選択
           .form-group
             = f.label:Name
             br

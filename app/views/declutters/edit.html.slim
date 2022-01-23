@@ -6,9 +6,14 @@
       .form_main
         = form_with model:@declutter, local:true do |f|
           .form-group
-            = f.label :写真
-            br
-            = f.attachment_field :thing_image
+            = attachment_image_tag @declutter, :thing_image, :fill,300,300
+          .form-group
+            /デフォルトのデザインを変更
+            /#img_field内をクリックしたら#fileもクリックする
+            = f.attachment_field :thing_image, id:"file", class:"profile_image_btn"
+            #img_field[onclick="$('#file').click()"]
+              i.far.fa-images
+                |  画像を選択
           .form-group
             = f.label :手放したモノ
             br
