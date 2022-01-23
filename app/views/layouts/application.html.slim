@@ -33,13 +33,13 @@ html
                 = link_to "Users", users_path, class: "nav-link"
             - else
               li.nav-item
-                = link_to "新規登録", new_user_registration_path, class: "nav-link"
+                = link_to "Sign Up", new_user_registration_path, class: "nav-link"
               li.nav-item
                 = link_to "Log In", new_user_session_path, class: "nav-link"
               li.nav-item
                 = link_to 'ゲストログイン(閲覧用)',homes_guest_sign_in_path, class: "nav-link", method: :post
               li.nav-item
-                = link_to "about", homes_about_path, class: "nav-link"
+                = link_to "About", homes_about_path, class: "nav-link"
 
   body[data-turbolinks="false"]
     = yield
