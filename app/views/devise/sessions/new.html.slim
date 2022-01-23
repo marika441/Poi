@@ -13,6 +13,8 @@
             = f.label :password
             br
             = f.password_field :password, autocomplete: "current-password"
+          p.text-danger
+            = alert
           - if devise_mapping.rememberable?
             .field.form-group
               = f.check_box :remember_me
@@ -20,4 +22,7 @@
           .actions
             = f.submit "Log in", class: "form_btn"
           .form_comment
-            = render "devise/shared/links"
+            span
+              | まだ登録がお済みでない方は
+              = render "devise/shared/links"
+              | から登録してください。
