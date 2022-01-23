@@ -22,11 +22,9 @@
              br
              = f.text_area :caption
          .form-group
-            = f.label:開始日時
+            = f.label:手放した日
+            br
             = f.datetime_select :start_date
-         .form-group
-             = f.label:終了日時
-             =f.datetime_select :end_date
          .actions
              = f.hidden_field :point, :value => 25
              = f.submit "手放す", class: "form_btn"
