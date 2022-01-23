@@ -186,8 +186,19 @@ body {
 .edit_btn {
   text-align: right;
 }
+.comment_index {
+  margin-bottom: 10px;
+  img {
+    margin-right: 7px;
+  }
+}
 .comment_form {
   margin-top: 30px;
+  .btn {
+    margin-top: 5px;
+    width: 100%;
+    background: #999999;
+  }
 }
 #declutter_comment_comment {
   width : 100%;
@@ -228,4 +239,13 @@ body {
 // カレンダーの設定
 .fc-view-container {
   background: #fff;
+}
+td.fc-sat {
+  background-color: #eaf4ff;
+}
+td.fc-sun {
+  background-color: #ffeaea;
+}
+.fc-time {
+  display: none;
 }

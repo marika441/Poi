@@ -32,7 +32,7 @@ $(function() {
     },
 
     timeFormat: 'HH:mm',
-    eventColor: '#63ceef',
+    eventColor: '#e8d5af',
     eventTextColor: '#000000',
   });
 });

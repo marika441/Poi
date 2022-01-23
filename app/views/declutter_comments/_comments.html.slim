@@ -2,11 +2,12 @@
     | コメント件数：
     = @declutter.declutter_comments.count
   - declutter.declutter_comments.each do |declutter_comment|
-    = link_to user_path(declutter_comment.user.id) do
-       = attachment_image_tag declutter_comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
-    = declutter_comment.user.name
-    | ：
-    = declutter_comment.comment
-    - if declutter_comment.user == current_user
-      = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
-    br
+    .comment_index
+      = link_to user_path(declutter_comment.user.id) do
+        = attachment_image_tag declutter_comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
+      = declutter_comment.user.name
+      | ：
+      = declutter_comment.comment
+      - if declutter_comment.user == current_user
+        = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
+      br
