@@ -26,6 +26,10 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      declutter:
+        title: 手放すモノ
+        caption: 説明欄
+        thing_image: 写真
     models:
       user: ユーザー
   devise:

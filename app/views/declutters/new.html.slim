@@ -13,14 +13,23 @@
             #img_field[onclick="$('#file').click()"]
               i.far.fa-images
                 |  画像を選択
+            - if @declutter.errors.include?(:thing_image)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:thing_image).first
          .form-group
             = f.label:手放すモノ
             br
             = f.text_field :title
+            - if @declutter.errors.include?(:title)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:title).first
          .form-group
              = f.label:説明
              br
              = f.text_area :caption
+             - if @declutter.errors.include?(:caption)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:caption).first
          .form-group
             = f.label:手放した日
             br

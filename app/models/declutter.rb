@@ -14,7 +14,11 @@ class Declutter < ApplicationRecord
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?
   end
-
+  
   attachment :thing_image
+  
+  validates :thing_image, presence:true
+  validates :title, presence: true, length: { maximum: 20 }
+  validates :caption, presence: true, length: { maximum: 200 }
 
 end

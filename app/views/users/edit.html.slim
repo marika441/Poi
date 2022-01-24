@@ -18,6 +18,9 @@
             = f.label:Name
             br
             = f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"
+            - if @user.errors.include?(:name)
+              p.text-danger
+                = @user.errors.full_messages_for(:name).first
           .form-group
             = f.label:Introduction
             br
