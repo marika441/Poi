@@ -21,8 +21,11 @@ class DecluttersController < ApplicationController
       user.level = user.level + 1
       user.update(level: user.level)
     end
-    @declutter.save
-    redirect_to declutters_path
+    if @declutter.save
+      redirect_to declutters_path
+    else
+      render :new
+    end
   end
 
   def index
