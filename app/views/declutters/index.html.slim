@@ -1,5 +1,5 @@
 = render "declutters/levelup_message"
-.container
+.container.declutter_index_group
   .row
     .col-md-3.mt-5.rank_info
       h3
@@ -16,7 +16,7 @@
         | 位
         | Lv.
         = user[1]
-        = user[2]
+        = link_to user[2], user_path(user[0])
         br
 
     .col-md-9
@@ -40,7 +40,7 @@
                 h1.card-title.text-center
                   = declutter.title
                 .card-text.text-center
-                  = declutter.caption
+                  | を手放しました！
                 .card-text.text-right
                   = link_to user_path(declutter.user.id) do
                     = declutter.user.name

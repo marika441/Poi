@@ -12,7 +12,7 @@ html
     nav.navbar.navbar-expand-lg.navbar-dark[style="background-color:#434343;"]
       .container-fluid
         a.navbar-brand
-          = link_to image_tag("logo.png", height:"100px"), root_path, class:"header-logo"
+          = link_to image_tag asset_path("logo.jpg", height:"100px"), root_path, class:"header-logo"
 
         button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
@@ -45,3 +45,8 @@ html
     .notice
       = notice
     = yield
+
+.row.mx-auto.footer
+  .col-md-12.footer_info
+    p.site-info
+      | Poi! | みんなで頑張る断捨離共有サイト
