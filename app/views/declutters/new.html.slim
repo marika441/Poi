@@ -34,6 +34,6 @@
             = f.label:手放した日
             br
             = f.datetime_select :start_date
-         .actions
+         .actions.form_btn_group
              = f.hidden_field :point, :value => 25
              = f.submit "手放す", class: "form_btn"

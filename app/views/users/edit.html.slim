@@ -6,7 +6,7 @@
       .form_main
         = form_with model:@user, local:true do |f|
           .form-group
-            = attachment_image_tag @user, :profile_image, :fill,200,200, fallback:"no_image.jpeg", size:"200x200", class:"rounded-circle"
+            = attachment_image_tag @user, :profile_image, :fill,200,200, fallback:asset_path"no_image.jpeg", size:"200x200", class:"rounded-circle"
           .form-group
             /デフォルトのデザインを変更
             /#img_field内をクリックしたら#fileもクリックする

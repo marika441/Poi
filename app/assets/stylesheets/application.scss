@@ -17,12 +17,18 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Vollkorn&display=swap');
+@import image-url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Vollkorn&display=swap');
 
 // ページ全体の設定
 body {
   font-family: 'Playfair Display', serif;
   background-color: #eae5de;
+}
+.container {
+  min-height: 100vh;
+}
+.tabbox {
+  min-height: 100vh;
 }
 
 // フラッシュメッセージの設定
@@ -62,6 +68,9 @@ body {
     border-color: #007bff;
     border-radius: 20px;
 }
+.page-item.disabled .page-link {
+  background-color: #f3f0e9;
+}
 .page-item:last-child .page-link {
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -86,6 +95,17 @@ body {
   box-shadow: 2px 2px gray;
 }
 
+// フッター
+.footer {
+  background: #434343;
+  color: #a1a1a1;
+  height: 200px;
+  text-align: center;
+  p {
+    margin-top: 100px;
+  }
+}
+
 // topページ
 @media screen and (max-width: 480px) {
   #top_img_left {
@@ -98,13 +118,13 @@ body {
   height: 700px;
 }
 .image1 {
-  background-image: url(room_top.jpg);
+  background-image: image-url(room_top.jpg);
 }
 .image2 {
-  background-image: url(room2.jpg);
+  background-image: image-url(room2.jpg);
 }
 .image3 {
-  background-image: url(room.jpg);
+  background-image: image-url(room.jpg);
 }
 .top_img_right {
   text-align: center;
@@ -152,6 +172,9 @@ body {
 }
 
 // 投稿一覧ページ
+.declutter_index_group {
+  margin-bottom: 60px;
+}
 .rank_info {
   text-align: center;
   h3 {
@@ -178,6 +201,9 @@ body {
 }
 
 // マイページ
+.user_show_group {
+  margin-bottom: 60px;
+}
 .user_info {
   text-align: center;
   h3 {
@@ -214,6 +240,9 @@ body {
 }
 
 // 投稿詳細ページ
+.declutter_show_group {
+  margin-bottom: 100px;
+}
 .edit_btn {
   text-align: right;
 }
@@ -268,6 +297,9 @@ body {
 }
 
 // カレンダーの設定
+.calendar_group {
+  margin-bottom: 150px;
+}
 .fc-view-container {
   background: #fff;
 }
