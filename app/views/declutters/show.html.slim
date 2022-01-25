@@ -20,7 +20,7 @@
      .card-text.text-right
       = link_to user_path(@declutter.user.id) do
        = @declutter.user.name
-       = attachment_image_tag @declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
+       = attachment_image_tag @declutter.user, :profile_image, :fill, 40, 40, fallback: asset_path("no_image.jpg"), size:"40x40", class: "rounded-circle ml-2"
 
    .edit_btn
     - if @declutter.user == current_user
