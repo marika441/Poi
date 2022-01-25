@@ -20,6 +20,7 @@ class DecluttersController < ApplicationController
     if nextlevel.thresold <= user.exp_point
       user.level = user.level + 1
       user.update(level: user.level)
+      flash[:levelup]="レベルアップ！"
     end
     if @declutter.save
       redirect_to declutters_path

@@ -1,0 +1,18 @@
+- if flash[:levelup].present?
+  script
+    |  window.onload = function() { $('#MODAL').modal('show'); }
+  #MODAL.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close[type="button" data-dismiss="modal" aria-label="Close"]
+            span[aria-hidden="true"]
+              | ×
+        .modal-body
+          h3
+            = flash[:levelup]
+            br
+            = image_tag 'levelup.jpeg', size: "200x200"
+        .modal-footer
+          a.btn.btn-link.btn-lg[href="#" data-dismiss="modal"]
+            | みんなのPoi!を見る

@@ -31,6 +31,21 @@ body {
   color: #6D8346;
 }
 
+// モーダルの設定
+.modal-header {
+  border-bottom: none;
+}
+.modal-body {
+  text-align: center;
+}
+.modal-footer {
+  border-top: none;
+  .btn-link {
+    color: #fff;
+    background: #df6c51;
+  }
+}
+
 // kaminariの設定
 .page-link {
   border: none;
@@ -174,6 +189,16 @@ body {
 .link_group {
   a {
     margin: 10px;
+    color: #fff;
+  }
+  .fas.fa-bookmark {
+    background: #DEB887;
+  }
+  .fas.fa-plus {
+    background: #81B9D7;
+  }
+  .far.fa-calendar-alt {
+    background: #71B9B0;
   }
 }
 
