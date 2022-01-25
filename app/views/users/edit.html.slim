@@ -1,0 +1,29 @@
+.container.mt-5
+  .row
+    .col-md-12
+      h2.form_title
+        | プロフィール編集
+      .form_main
+        = form_with model:@user, local:true do |f|
+          .form-group
+            = attachment_image_tag @user, :profile_image, :fill,200,200, fallback:asset_path"no_image.jpeg", size:"200x200", class:"rounded-circle"
+          .form-group
+            /デフォルトのデザインを変更
+            /#img_field内をクリックしたら#fileもクリックする
+            = f.attachment_field :profile_image, id:"file", class:"profile_image_btn"
+            #img_field[onclick="$('#file').click()"]
+              i.far.fa-images
+                |  画像を選択
+          .form-group
+            = f.label:Name
+            br
+            = f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"
+            - if @user.errors.include?(:name)
+              p.text-danger
+                = @user.errors.full_messages_for(:name).first
+          .form-group
+            = f.label:Introduction
+            br
+            = f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"
+          .actions
+            = f.submit "変更する", class:"form_btn"

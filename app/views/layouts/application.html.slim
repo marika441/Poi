@@ -5,33 +5,48 @@ html
       | Poi
     = csrf_meta_tags
     = csp_meta_tag
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    nav.navbar.navbar-expand-lg.navbar-dark[style="background-color:#434343;"]
       .container-fluid
         a.navbar-brand
-          | Poi!
-        button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+          = link_to image_tag asset_path("logo.jpg", height:"100px"), root_path, class:"header-logo"
+
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
           span.navbar-toggler-icon
         #navbarSupportedContent.collapse.navbar-collapse
           ul.navbar-nav.me-auto.mb-2.mb-lg-0
             -if user_signed_in?
               li.nav-item
-                = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"
+                = link_to "Mypage", user_path(current_user.id), class: "nav-link"
               li.nav-item
-                = link_to "about", home_about_path, class: "nav-link"
+                = link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link"
+              li.nav-item
+                = link_to "About", homes_about_path, class: "nav-link"
               li.nav-item
                 = link_to "みんなのPoi!", declutters_path, class: "nav-link"
               li.nav-item
                 = link_to "今日のPoi!", new_declutter_path, class: "nav-link"
+              li.nav-item
+                = link_to "Users", users_path, class: "nav-link"
             - else
               li.nav-item
-                = link_to "新規登録", new_user_registration_path, class: "nav-link"
+                = link_to "Sign Up", new_user_registration_path, class: "nav-link"
               li.nav-item
-                = link_to "ログイン", new_user_session_path, class: "nav-link"
+                = link_to "Log In", new_user_session_path, class: "nav-link"
               li.nav-item
-                = link_to "about", home_about_path, class: "nav-link"
+                = link_to 'ゲストログイン(閲覧用)',homes_guest_sign_in_path, class: "nav-link", method: :post
+              li.nav-item
+                = link_to "About", homes_about_path, class: "nav-link"
 
-  .main
+  body[data-turbolinks="false"]
+    .notice
+      = notice
     = yield
+
+.row.mx-auto.footer
+  .col-md-12.footer_info
+    p.site-info
+      | Poi! | みんなで頑張る断捨離共有サイト

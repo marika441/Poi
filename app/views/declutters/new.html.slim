@@ -1,11 +1,39 @@
-.container
-  h1 今日の断捨離
-  = form_with model: @declutter, local:true do |f|
-   h4 写真
-   = f.attachment_field :thing_image
-   h4 手放すモノ
-   = f.text_field :thing_name
-   h4 説明
-   = f.text_area :caption
-   br
-   = f.submit "手放す", class: "btn btn-success"
+.container.mt-5
+  .row
+    .col-md-12
+      h2.form_title
+        | 今日のPoi!
+      .form_main
+        = form_with model: @declutter, local:true do |f|
+         .form-group
+            = f.label:写真
+            /デフォルトのデザインを変更
+            /#img_field内をクリックしたら#fileもクリックする
+            = f.attachment_field :thing_image, id:"file", class:"profile_image_btn"
+            #img_field[onclick="$('#file').click()"]
+              i.far.fa-images
+                |  画像を選択
+            - if @declutter.errors.include?(:thing_image)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:thing_image).first
+         .form-group
+            = f.label:手放すモノ
+            br
+            = f.text_field :title
+            - if @declutter.errors.include?(:title)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:title).first
+         .form-group
+             = f.label:説明
+             br
+             = f.text_area :caption
+             - if @declutter.errors.include?(:caption)
+              p.text-danger
+                = @declutter.errors.full_messages_for(:caption).first
+         .form-group
+            = f.label:手放した日
+            br
+            = f.datetime_select :start_date
+         .actions.form_btn_group
+             = f.hidden_field :point, :value => 25
+             = f.submit "手放す", class: "form_btn"

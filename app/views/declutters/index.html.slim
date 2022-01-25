@@ -1,24 +1,49 @@
-.container
+= render "declutters/levelup_message"
+.container.declutter_index_group
   .row
-    - @declutters.each do |declutter|
-        .card[style="width: 18rem;"]
-          = link_to declutter_path(declutter.id) do
-            = attachment_image_tag declutter, :thing_image, class: "card-img-top"
-          .card-body
-            p.card-text
-              | 手放したモノ
-              br
-              = declutter.thing_name
-            p.card-text
-              | 説明
-              br
-              = declutter.caption
-            p.card-text
-              | neme:
-              = declutter.user.name
-            p.card-text
-              = link_to"#{declutter.declutter_comments.count}コメント", declutter_path(declutter.id)
-              |  <div id="like_btn_
-              = declutter.id
-              | ">
-              = render "likes/like-btn", declutter: declutter
+    .col-md-3.mt-5.rank_info
+      h3
+        | ランキング
+      - @user_ranks.each.with_index(1) do |user, i|
+        - case i when 1
+          i.fas.fa-crown[style="color: gold;"]
+        - when 2
+          i.fas.fa-crown[style="color: silver;"]
+        - when 3
+          i.fas.fa-crown[style="color: orange;"]
+        |  第
+        = i
+        | 位
+        | Lv.
+        = user[1]
+        = link_to user[2], user_path(user[0])
+        br
+
+    .col-md-9
+      .row
+        - @declutters.each do |declutter|
+          .col-md-4.mt-5
+            .card.card-height[style="width: 100%;"]
+              = link_to declutter_path(declutter.id) do
+                = attachment_image_tag declutter, :thing_image, class: "card-img-top-height"
+              .card-body
+                .row.card-link
+                  p
+                    = link_to"#{declutter.declutter_comments.count}", declutter_path(declutter.id), class: "far fa-comment text-muted"
+                  | <div id="like_btn_
+                  = declutter.id
+                  | ">
+                  = render "likes/like-btn", declutter: declutter
+                  | </div>
+                  p
+                    = render "bookmarks/bookmark-btn", declutter: declutter
+                h1.card-title.text-center
+                  = declutter.title
+                .card-text.text-center
+                  | を手放しました！
+                .card-text.text-right
+                  = link_to user_path(declutter.user.id) do
+                    = declutter.user.name
+                    = attachment_image_tag declutter.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpeg", size:"40x40", class: "rounded-circle ml-2"
+
+      = paginate @declutters

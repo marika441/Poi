@@ -1,0 +1,10 @@
+ul.tab-list.list-unstyled
+  li.tab.tab-active
+    |  フォロワー
+  li.tab
+    |  フォロー中
+.tabbox-contents
+  .tabbox.box-show
+    = render 'relationships/followers_user', followers: @followers
+  .tabbox
+    = render 'relationships/followings_user', followings: @followings
