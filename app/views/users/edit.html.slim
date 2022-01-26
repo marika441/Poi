@@ -1,13 +1,13 @@
-.container.mt-5
+.container.mt-5.user_edit_group
   .row
     .col-md-12
       h2.form_title
         | プロフィール編集
-      .form_main
-        = form_with model:@user, local:true do |f|
-          .form-group
-            = attachment_image_tag @user, :profile_image, :fill,200,200, fallback: asset_path("no_image.jpg"), size:"200x200", class:"rounded-circle"
-          .form-group
+      = form_with model:@user, local:true do |f|
+        .col-md-4.mx-auto
+          .form-group.photo_img
+            = attachment_image_tag @user, :profile_image, :fill,250,250, fallback: asset_path("no_image.jpg"), size:"250x250", class:"image-preview rounded-circle"
+          .form-group.photo_choice_btn
             /デフォルトのデザインを変更
             /#img_field内をクリックしたら#fileもクリックする
             = f.attachment_field :profile_image, id:"file", class:"profile_image_btn"
@@ -17,13 +17,13 @@
           .form-group
             = f.label:Name
             br
-            = f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"
+            = f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", class: "form-control"
             - if @user.errors.include?(:name)
               p.text-danger
                 = @user.errors.full_messages_for(:name).first
           .form-group
             = f.label:Introduction
             br
-            = f.text_field :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"
-          .actions
+            = f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介", class: "form-control"
+          .actions.form_btn_group
             = f.submit "変更する", class:"form_btn"
