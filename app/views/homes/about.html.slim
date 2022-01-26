@@ -1,2 +1,44 @@
+.about_title
+  h1
+    | About
 .container
-  h1 aboutページ
+  .row.function_info
+    .col-md-7
+      h2
+        | いいね機能
+      p
+        | みんなのPOi!に対していいねをすることができます。
+        br
+        | みんなの断捨離をいいねで応援しましょう！
+    .col-md-5
+      = image_tag asset_path("like_btn.jpg"), size: "400x300"
+  .row.function_info
+    .col-md-7.order-md-2
+      h2
+        | ブックマーク機能
+      p
+        | みんなのPoi!や自分のPoi!をブックマークに入れて保存することができます。
+        br
+        |気になる投稿や大切な投稿を保存して見返しましょう！
+    .col-md-5.order-md-1
+      = image_tag asset_path("bookmark.jpg"), size: "400x300"
+  .row.function_info
+    .col-md-7
+      h2
+        | レベルアップ・ランキング機能
+      p
+        | 沢山のPoi!でレベルアップ！
+        br
+        | レベルに応じてランキングも表示されます。上位を目指して頑張りましょう！
+    .col-md-5
+      = image_tag asset_path("about_levelup.jpg"), size: "400x300"
+  .row.function_info
+    .col-md-7.order-md-2
+      h2
+        | カレンダー機能
+      p
+        | 投稿はマイページのカレンダーからも確認が出来ます。
+        br
+        | 毎月どれだけPoi!できたかカレンダーで確認してみましょう！
+    .col-md-5.order-md-1
+      = image_tag asset_path("calendar.jpg"), size: "400x300"
