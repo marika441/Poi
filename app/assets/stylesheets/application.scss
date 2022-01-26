@@ -30,6 +30,12 @@ body {
 .tabbox {
   min-height: 100vh;
 }
+.form_btn_group {
+  text-align: center;
+}
+.photo_choice_btn {
+  text-align: center;
+}
 
 // フラッシュメッセージの設定
 .notice {
@@ -128,6 +134,7 @@ body {
 }
 .top_img_right {
   text-align: center;
+  margin-bottom: 50px;
   h1 {
     margin-top: 150px;
     text-align: center;
@@ -152,6 +159,7 @@ body {
 
 // 新規登録・ログインページ
 .form_title {
+  margin-bottom: 30px;
   text-align: center;
   border-bottom:solid 1px #434343;
 }
@@ -228,6 +236,16 @@ body {
   }
 }
 
+// ブックマーク一覧ページ
+.bookmarks_group {
+  margin-bottom: 50px;
+}
+
+// ユーザー編集ページ
+.user_edit_group {
+  margin-bottom: 30px;
+}
+
 // ユーザー一覧ページ
 .table_title {
   text-align: center;
@@ -237,6 +255,14 @@ body {
   .btn {
     border-radius: 20px;
   }
+}
+
+// 新規投稿ページ
+.declutter_new_group {
+  margin-bottom: 30px;
+}
+.photo_img {
+  text-align: center;
 }
 
 // 投稿詳細ページ
@@ -262,6 +288,11 @@ body {
 }
 #declutter_comment_comment {
   width : 100%;
+}
+
+// 投稿詳細ページ
+.declutter_edit_group {
+  margin-bottom: 30px;
 }
 
 // タブメニューの設定
