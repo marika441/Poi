@@ -157,6 +157,26 @@ body {
   }
 }
 
+// Aboutページ
+.about_title {
+  margin-bottom: 100px;
+  text-align: center;
+  height: 200px;
+  background: #f2f0e9;
+  h1{
+    padding-top: 80px;
+  }
+}
+.function_info {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  border-top:solid 1px #434343;
+  h2 {
+    margin-top: 100px;
+  }
+}
+
 // 新規登録・ログインページ
 .form_title {
   margin-bottom: 30px;
