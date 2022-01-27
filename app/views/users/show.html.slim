@@ -6,7 +6,7 @@
         = @user.name
         | 　Lv.
         = @user.level
-      h4
+      h5
         = @user.introduction
       p
         = link_to @user.followings.count, user_followings_path(@user)
@@ -32,7 +32,7 @@
           .col-md-4.mt-3
             .card.card-height[style="width: 100%;"]
               = link_to declutter_path(declutter.id) do
-                = attachment_image_tag declutter, :thing_image, class: "card-img-top-height"
+                = attachment_image_tag declutter, :thing_image, class: "card-img"
               .card-body
                 .row.card-link
                   p
@@ -44,7 +44,7 @@
                   | </div>
                   p
                     = render "bookmarks/bookmark-btn", declutter: declutter
-                h4.card-title.text-center
+                h5.card-title.text-center
                   = declutter.title
 
       = paginate @declutters
