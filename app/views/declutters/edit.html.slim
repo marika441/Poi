@@ -1,13 +1,13 @@
-.container.mt-5
+.container.mt-5.declutter_edit_group
   .row
     .col-md-12
       h2.form_title
         | 編集
-      .form_main
-        = form_with model:@declutter, local:true do |f|
-          .form-group
-            = attachment_image_tag @declutter, :thing_image, :fill,300,300
-          .form-group
+      = form_with model:@declutter, local:true do |f|
+        .col-md-4.mx-auto
+          .form-group.photo_img
+            = attachment_image_tag @declutter, :thing_image, :fill,300,300, fallback: asset_path("no_image.jpg"), size:"300x300", class:"image-preview"
+          .form-group.photo_choice_btn
             /デフォルトのデザインを変更
             /#img_field内をクリックしたら#fileもクリックする
             = f.attachment_field :thing_image, id:"file", class:"profile_image_btn"
@@ -17,10 +17,10 @@
           .form-group
             = f.label :手放したモノ
             br
-            = f.text_field :title
+            = f.text_field :title, class: "form-control"
           .form-group
             = f.label :説明
             br
-            = f.text_area :caption
-            br
+            = f.text_area :caption, class: "form-control"
+          .actions.form_btn_group
             = f.submit "変更を保存", class: "form_btn"
