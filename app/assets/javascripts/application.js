@@ -61,15 +61,13 @@ $(document).on('turbolinks:load', function() {
 
 // 画像のプレビューを表示
 $(function() {
-    $('#file').on('change', function() {
-        var selectedFile = this.files[0];
-        var fileReader = new FileReader();
-
-        fileReader.onload = function(e) {
-            var loadedImageUri = e.target.result;
-             $('.image-preview').attr('src', loadedImageUri);
-        };
-
+  $('#file').on('change', function() {
+    var selectedFile = this.files[0];
+    var fileReader = new FileReader();
+      fileReader.onload = function(e) {
+        var loadedImageUri = e.target.result;
+          $('.image-preview').attr('src', loadedImageUri);
+      };
         fileReader.readAsDataURL(selectedFile);
     });
 });
