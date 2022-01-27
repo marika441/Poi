@@ -206,9 +206,11 @@ body {
 .rank_info {
   text-align: center;
   h3 {
-    margin-top: 20px;
     font-weight: bold;
     font-family :Quicksand, sans-serif;
+  }
+  a {
+    margin-left: 10px;
   }
 }
 .card-height {
@@ -231,6 +233,7 @@ body {
 // マイページ
 .user_show_group {
   margin-bottom: 60px;
+  word-wrap: break-word;
 }
 .user_info {
   text-align: center;
