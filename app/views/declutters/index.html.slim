@@ -2,22 +2,26 @@
 .container.declutter_index_group
   .row
     .col-md-3.mt-5.rank_info
-      h3
-        | ランキング
-      - @user_ranks.each.with_index(1) do |user, i|
-        - case i when 1
-          i.fas.fa-crown[style="color: gold;"]
-        - when 2
-          i.fas.fa-crown[style="color: silver;"]
-        - when 3
-          i.fas.fa-crown[style="color: orange;"]
-        |  第
-        = i
-        | 位
-        | Lv.
-        = user[1]
-        = link_to user[2], user_path(user[0])
-        br
+      .card.bg-light.mb-3
+        h3.card-header
+          | ランキング
+        h5
+          - @user_ranks.each.with_index(1) do |user, i|
+            .card-body
+              - case i when 1
+                i.fas.fa-crown.fa-lg[style="color: gold;"]
+              - when 2
+                i.fas.fa-crown.fa-lg[style="color: silver;"]
+              - when 3
+                i.fas.fa-crown.fa-lg[style="color: orange;"]
+              |  第
+              = i
+              | 位
+              br
+              | Lv.
+              = user[1]
+              = link_to user[2], user_path(user[0])
+              br
 
     .col-md-9
       .row
@@ -37,7 +41,7 @@
                   | </div>
                   p
                     = render "bookmarks/bookmark-btn", declutter: declutter
-                h1.card-title.text-center
+                h4.card-title.text-center
                   = declutter.title
                 .card-text.text-center
                   | を手放しました！

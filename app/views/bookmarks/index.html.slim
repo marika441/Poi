@@ -18,10 +18,8 @@
                 | </div>
                 p
                   = render "bookmarks/bookmark-btn", declutter: bookmark.declutter
-              h1.card-title.text-center
+              h4.card-title.text-center
                 = bookmark.declutter.title
-              .card-text.text-center
-                = bookmark.declutter.caption
               .card-text.text-right
                 = link_to user_path(bookmark.declutter.user.id) do
                   = bookmark.declutter.user.name
