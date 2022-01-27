@@ -1,3 +1,35 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// フォロー・フォロワータブメニューの設定
+.tab {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  background: #f3f0e9;
+}
+.tab-list {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.tab:first-child {
+  border-left: none;
+}
+// タブがactiveのときのデザイン
+.tab-active {
+  border-bottom: solid 1.5px #333333;
+}
+// タブの中を始めは非表示にする
+.tabbox {
+  display: none;
+  padding: 15px;
+}
+.box-show {
+  display: block;
+}
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}

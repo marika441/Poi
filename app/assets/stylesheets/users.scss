@@ -1,3 +1,48 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// マイページ
+.user_show_group {
+  margin-bottom: 60px;
+  word-wrap: break-word;
+}
+.user_info {
+  text-align: center;
+  h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family :Quicksand, sans-serif;
+  }
+}
+.link_group {
+  a {
+    margin: 10px;
+    color: #fff;
+  }
+  .fas.fa-bookmark {
+    background: #DEB887;
+  }
+  .fas.fa-plus {
+    background: #81B9D7;
+  }
+  .far.fa-calendar-alt {
+    background: #71B9B0;
+  }
+}
+
+// ユーザー編集ページ
+.user_edit_group {
+  margin-bottom: 30px;
+}
+
+// ユーザー一覧ページ
+.table_title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.table {
+  .btn {
+    border-radius: 20px;
+  }
+}
