@@ -9,9 +9,9 @@ class DecluttersController < ApplicationController
     @declutter.user_id = current_user.id
     if @declutter.save
       user = User.find(current_user.id)
-      
+
       totalExp = user.exp_point + @declutter.point
-      
+
       user.exp_point = totalExp
       user.update(exp_point: totalExp)
       # nextlevelモデルから現在のuserレベルよりも1高いレコードを取得
@@ -22,6 +22,7 @@ class DecluttersController < ApplicationController
         user.update(level: user.level)
         flash[:levelup]="レベルアップ！"
       end
+      flash[:notice]="今日のPoi!を投稿しました"
       redirect_to declutters_path
     else
       render :new
@@ -54,6 +55,7 @@ class DecluttersController < ApplicationController
   def update
     @declutter = Declutter.find(params[:id])
     @declutter.update(declutter_params)
+    flash[:notice]="投稿を変更しました"
     redirect_to declutter_path(@declutter.id)
   end
 

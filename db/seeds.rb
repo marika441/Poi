@@ -14,6 +14,8 @@ CSV.foreach('db/next_level.csv') do |info|
 end
 
 # User
-User.create!(:name => "はなこ", :email => "example@example.com", :password => "123456")
-User.create!(:name => "たろう", :email => "example2@example.com", :password => "123456")
-User.create!(:name => "ぽい", :email => "example3@example.com", :password => "123456")
+User.create!(:name => "はな", :email => "example1@example.com", :password => "123456")
+User.create!(:name => "たろ", :email => "example2@example.com", :password => "123456")
+User.create!(:name => "ゆう", :email => "example3@example.com", :password => "123456")
+User.create!(:name => "はる", :email => "example4@example.com", :password => "123456")
+User.create!(:name => "とも", :email => "example5@example.com", :password => "123456")

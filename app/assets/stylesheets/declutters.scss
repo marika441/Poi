@@ -5,6 +5,9 @@
 // 投稿一覧ページ
 .declutter_index_group {
   margin-bottom: 60px;
+  .card-text:last-child {
+    margin-bottom: -20px;
+}
 }
 .rank_info {
   text-align: center;
@@ -28,15 +31,6 @@
   width: 100%;
   height: 100%;
   }
-}
-.declutter_title {
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  font-family :Quicksand, sans-serif;
-  top: 250px;
-  left: 45%;
 }
 
 // 新規投稿ページ
