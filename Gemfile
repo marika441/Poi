@@ -75,6 +75,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'toastr-rails'
 
 gem 'dotenv-rails'
 group :production do
