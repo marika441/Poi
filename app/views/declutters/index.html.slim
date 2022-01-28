@@ -49,5 +49,8 @@
                   = link_to user_path(declutter.user.id) do
                     = declutter.user.name
                     = attachment_image_tag declutter.user, :profile_image, :fill, 40, 40, fallback: asset_path("no_image.jpg"), size:"40x40", class: "rounded-circle ml-2"
+                .card-text.text-right.text-muted.mt-1.small
+                  = time_ago_in_words(declutter.created_at)
+                  | 前
 
       = paginate @declutters

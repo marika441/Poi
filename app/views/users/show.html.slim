@@ -46,5 +46,8 @@
                     = render "bookmarks/bookmark-btn", declutter: declutter
                 h5.card-title.text-center
                   = declutter.title
+                .card-text.text-right.text-muted.mt-1.small
+                  = time_ago_in_words(declutter.created_at)
+                  | 前
 
       = paginate @declutters
