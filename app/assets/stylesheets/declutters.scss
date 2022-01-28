@@ -1,3 +1,75 @@
 // Place all the styles related to the Declutters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 投稿一覧ページ
+.declutter_index_group {
+  margin-bottom: 60px;
+  .card-text:last-child {
+    margin-bottom: -20px;
+}
+}
+.rank_info {
+  text-align: center;
+  h3 {
+    font-weight: bold;
+    font-family :Quicksand, sans-serif;
+  }
+  a {
+    margin-left: 10px;
+  }
+}
+.card-height {
+  height: 100%;
+}
+.card-img-top-height {
+  width: 100%;
+  height: 250px;
+}
+@media screen and (max-width: 480px) {
+  .card-img-top-height {
+  width: 100%;
+  height: 100%;
+  }
+}
+
+// 新規投稿ページ
+.declutter_new_group {
+  margin-bottom: 30px;
+}
+.photo_img {
+  text-align: center;
+}
+
+// 投稿詳細ページ
+.declutter_show_group {
+  margin-bottom: 100px;
+}
+.edit_btn {
+  text-align: right;
+}
+.comment_index {
+  img {
+    margin-right: 7px;
+  }
+  p {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+}
+.comment_form {
+  margin-top: 30px;
+  .btn {
+    margin-top: 5px;
+    width: 100%;
+    background: #999999;
+  }
+}
+#declutter_comment_comment {
+  width : 100%;
+}
+
+// 投稿編集ページ
+.declutter_edit_group {
+  margin-bottom: 30px;
+}

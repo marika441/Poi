@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "toastr";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Vollkorn&display=swap');
 
 // ページ全体の設定
@@ -30,10 +31,25 @@ body {
 .tabbox {
   min-height: 100vh;
 }
-.form_btn_group {
+
+// 各ページのタイトル・ボタンの設定
+.form_title {
+  margin-bottom: 30px;
   text-align: center;
+  border-bottom:solid 1px #434343;
 }
-.photo_choice_btn {
+.form_comment {
+  margin-top: 20px;
+}
+.form_btn {
+  background: rgba(148,175,101,1);
+  color: #fff;
+  border-style: none;
+  margin-top: 10px;
+  padding: 10px 30px;
+  width: 150px;
+}
+.form_btn_group {
   text-align: center;
 }
 
@@ -58,7 +74,7 @@ body {
   }
 }
 
-// kaminariの設定
+// ページネーションの設定
 .page-link {
   border: none;
   color: #6f6e6e;
@@ -85,8 +101,11 @@ body {
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+.photo_choice_btn {
+  text-align: center;
+}
 
-// attachment_filedのデザイン(共通)
+// attachment_filedの設定
 .profile_image_btn {
   display: none;
 }
@@ -101,7 +120,7 @@ body {
   box-shadow: 2px 2px gray;
 }
 
-// フッター
+// フッターの
 .footer {
   background: #434343;
   color: #a1a1a1;
@@ -110,244 +129,6 @@ body {
   p {
     margin-top: 100px;
   }
-}
-
-// topページ
-@media screen and (max-width: 480px) {
-  #top_img_left {
-  max-width: 100%;
-  max-height: 400px;
-}
-}
-#top_img_left {
-  width: 100%;
-  height: 700px;
-}
-.image1 {
-  background-image: image-url("room_top.jpg");
-}
-.image2 {
-  background-image: image-url("room2.jpg");
-}
-.image3 {
-  background-image: image-url("room.jpg");
-}
-.top_img_right {
-  text-align: center;
-  margin-bottom: 50px;
-  h1 {
-    margin-top: 150px;
-    text-align: center;
-    font-weight: bold;
-    font-size : 90px;
-    color: #434343;
-    font-family :Quicksand, sans-serif;
-  }
-  .btn {
-    margin: 0 5px;
-    padding: 5px 30px;
-    border-radius: 20px;
-  }
-  .top_form_btn {
-    margin-top: 60px;
-  }
-  p {
-    margin-top: 150px;
-    margin-bottom: 2px;
-  }
-}
-
-// Aboutページ
-.about_title {
-  margin-bottom: 100px;
-  text-align: center;
-  height: 200px;
-  background: #f2f0e9;
-  h1{
-    padding-top: 80px;
-  }
-}
-.function_info {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-  border-top:solid 1px #434343;
-  h2 {
-    margin-top: 100px;
-  }
-}
-
-// 新規登録・ログインページ
-.form_title {
-  margin-bottom: 30px;
-  text-align: center;
-  border-bottom:solid 1px #434343;
-}
-.form_main {
-  text-align: center;
-  margin-top: 40px;
-}
-.form_comment {
-  margin-top: 20px;
-}
-.form_btn {
-  background: rgba(148,175,101,1);
-  color: #fff;
-  border-style: none;
-  margin-top: 10px;
-  padding: 10px 30px;
-  width: 150px;
-}
-
-// 投稿一覧ページ
-.declutter_index_group {
-  margin-bottom: 60px;
-}
-.rank_info {
-  text-align: center;
-  h3 {
-    font-weight: bold;
-    font-family :Quicksand, sans-serif;
-  }
-  a {
-    margin-left: 10px;
-  }
-}
-.card-height {
-  height: 100%;
-}
-.card-img-top-height {
-  height: 100%;
-  width: 100%;
-}
-.declutter_title {
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  font-family :Quicksand, sans-serif;
-  top: 250px;
-  left: 45%;
-}
-
-// マイページ
-.user_show_group {
-  margin-bottom: 60px;
-  word-wrap: break-word;
-}
-.user_info {
-  text-align: center;
-  h3 {
-    margin-top: 20px;
-    font-weight: bold;
-    font-family :Quicksand, sans-serif;
-  }
-}
-.link_group {
-  a {
-    margin: 10px;
-    color: #fff;
-  }
-  .fas.fa-bookmark {
-    background: #DEB887;
-  }
-  .fas.fa-plus {
-    background: #81B9D7;
-  }
-  .far.fa-calendar-alt {
-    background: #71B9B0;
-  }
-}
-
-// ブックマーク一覧ページ
-.bookmarks_group {
-  margin-bottom: 50px;
-}
-
-// ユーザー編集ページ
-.user_edit_group {
-  margin-bottom: 30px;
-}
-
-// ユーザー一覧ページ
-.table_title {
-  text-align: center;
-  margin-bottom: 50px;
-}
-.table {
-  .btn {
-    border-radius: 20px;
-  }
-}
-
-// 新規投稿ページ
-.declutter_new_group {
-  margin-bottom: 30px;
-}
-.photo_img {
-  text-align: center;
-}
-
-// 投稿詳細ページ
-.declutter_show_group {
-  margin-bottom: 100px;
-}
-.edit_btn {
-  text-align: right;
-}
-.comment_index {
-  margin-bottom: 10px;
-  img {
-    margin-right: 7px;
-  }
-}
-.comment_form {
-  margin-top: 30px;
-  .btn {
-    margin-top: 5px;
-    width: 100%;
-    background: #999999;
-  }
-}
-#declutter_comment_comment {
-  width : 100%;
-}
-
-// 投稿詳細ページ
-.declutter_edit_group {
-  margin-bottom: 30px;
-}
-
-// タブメニューの設定
-.tab {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-  background: #f3f0e9;
-}
-.tab-list {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-.tab:first-child {
-  border-left: none;
-}
-// タブがactiveのときのデザイン
-.tab-active {
-  border-bottom: solid 1.5px #333333;
-}
-// タブの中を始めは非表示にする
-.tabbox {
-  display: none;
-  padding: 15px;
-}
-.box-show {
-  display: block;
-}
-.tab:hover{
-  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
-  transform: translateY(-1px);
 }
 
 // カレンダーの設定

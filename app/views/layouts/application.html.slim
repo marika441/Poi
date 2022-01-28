@@ -8,7 +8,7 @@ html
     meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+  body[data-turbolinks="false"]
     nav.navbar.navbar-expand-lg.navbar-dark[style="background-color:#434343;"]
       .container-fluid
         a.navbar-brand
@@ -40,10 +40,16 @@ html
                 = link_to 'ゲストログイン(閲覧用)',homes_guest_sign_in_path, class: "nav-link", method: :post
               li.nav-item
                 = link_to "About", homes_about_path, class: "nav-link"
-
-  body[data-turbolinks="false"]
-    .notice
-      = notice
+                
+    - flash.each do |type, msg|
+      - type = 'success' if type == 'notice'
+      script
+        | toastr['
+        = type
+        | ']('
+        = msg
+        | ');
+        
     = yield
 
 .row.mx-auto.footer
