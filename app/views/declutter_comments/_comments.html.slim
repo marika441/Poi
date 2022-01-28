@@ -7,7 +7,10 @@
         = attachment_image_tag declutter_comment.user, :profile_image, :fill, 40, 40, fallback: asset_path("no_image.jpg"), size:"40x40", class: "rounded-circle ml-2"
       = declutter_comment.user.name
       | ：
-      = declutter_comment.comment
-      - if declutter_comment.user == current_user
-        = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
-      br
+      = time_ago_in_words(declutter_comment.created_at)
+      | 前
+      p
+        = declutter_comment.comment
+        - if declutter_comment.user == current_user
+          = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
+        br
