@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :set_rerationship, only: [:followings, :followers]
 
   def create
     current_user.follow(params[:user_id])
@@ -11,15 +12,17 @@ class RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
-    @followings = user.followings
-    @followers = user.followers
   end
 
   def followers
+  end
+  
+  private
+  
+  def set_rerationship
     user = User.find(params[:user_id])
-    @followers = user.followers
     @followings = user.followings
+    @followers = user.followers
   end
 
 end

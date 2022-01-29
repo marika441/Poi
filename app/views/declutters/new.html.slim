@@ -8,12 +8,8 @@
           .form-group.photo_img
             = attachment_image_tag @declutter, :thing_image, class: "image-preview", fallback: "no_photo_image.jpg", size: "300x300"
           .form-group.photo_choice_btn
-            /デフォルトのデザインを変更
-            /#img_field内をクリックしたら#fileもクリックする
             = f.attachment_field :thing_image, id:"file", class:"profile_image_btn"
-            #img_field[onclick="$('#file').click()"]
-              i.far.fa-images
-                |  画像を選択
+            = render 'layouts/photo_btn', f: f
             - if @declutter.errors.include?(:thing_image)
               p.text-danger
                 = @declutter.errors.full_messages_for(:thing_image).first

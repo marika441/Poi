@@ -1,4 +1,5 @@
 class DecluttersController < ApplicationController
+  before_action :set_declutter, only: [:show, :edit, :destroy, :update]
 
   def new
     @declutter = Declutter.new
@@ -38,22 +39,18 @@ class DecluttersController < ApplicationController
   end
 
   def show
-    @declutter = Declutter.find(params[:id])
     @declutter_comment = DeclutterComment.new
   end
 
   def edit
-    @declutter = Declutter.find(params[:id])
   end
 
   def destroy
-    @declutter = Declutter.find(params[:id])
     @declutter.destroy
     redirect_to declutters_path
   end
 
   def update
-    @declutter = Declutter.find(params[:id])
     @declutter.update(declutter_params)
     flash[:notice]="投稿を変更しました"
     redirect_to declutter_path(@declutter.id)
@@ -64,5 +61,9 @@ class DecluttersController < ApplicationController
   def declutter_params
     params.require(:declutter).permit(:title, :thing_image, :caption, :point, :start_date, :end_date, :user_id)
   end
-
+  
+  def set_declutter
+    @declutter = Declutter.find(params[:id])
+  end
+  
 end
