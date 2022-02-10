@@ -8,7 +8,7 @@
 
 # CSVからnext_levelテーブルのレベル・閾値を取り込み
 require "csv"
- 
+
 CSV.foreach('db/next_level.csv') do |info|
   NextLevel.create(:level => info[0], :thresold => info[1])
 end
