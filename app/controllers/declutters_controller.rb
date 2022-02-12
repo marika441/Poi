@@ -43,6 +43,11 @@ class DecluttersController < ApplicationController
   end
 
   def edit
+    if @declutter.user == current_user
+      render :edit
+    else
+      redirect_to declutters_path
+    end
   end
 
   def destroy
@@ -61,9 +66,9 @@ class DecluttersController < ApplicationController
   def declutter_params
     params.require(:declutter).permit(:title, :thing_image, :caption, :point, :start_date, :end_date, :user_id)
   end
-  
+
   def set_declutter
     @declutter = Declutter.find(params[:id])
   end
-  
+
 end

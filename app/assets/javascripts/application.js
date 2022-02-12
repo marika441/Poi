@@ -72,3 +72,8 @@ $(function() {
         fileReader.readAsDataURL(selectedFile);
     });
 });
+
+// モーダルの
+$(document).ready(function () {
+  $('#MODAL').modal('show');
+});
