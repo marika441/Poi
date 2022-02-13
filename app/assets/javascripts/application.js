@@ -73,7 +73,7 @@ $(function() {
     });
 });
 
-// モーダルの
+// モーダルの表示
 $(document).ready(function () {
   $('#MODAL').modal('show');
 });
