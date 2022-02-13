@@ -1,4 +1,5 @@
-![デモ動画](https://user-images.githubusercontent.com/92457238/153710612-9c1ab273-813b-48f6-baf5-84bd37521947.gif)
+![デモ動画](https://user-images.githubusercontent.com/92457238/153759178-20d5efa9-3162-4eab-940a-d587d7f82331.gif)
+
 
 # Poi!
 
@@ -26,6 +27,15 @@
 - 手放すだけでなく、記録として残しておきたいとき<br>
 - 他の人がどんなモノを手放しているのかを見てみたいとき<br>
 - 一人では中々続かないので、みんなでアドバイスや励まし合いながら取り組みたいとき
+
+### 断捨離について
+- [断捨離について(現状と課題)](https://github.com/marika441/Poi/files/8055720/default.pdf)
+
+## レスポンシブデザイン
+![モックアップ](https://user-images.githubusercontent.com/92457238/153755710-356c941c-499c-4f7e-b10c-a419a32bf4db.jpg)
+
+## サイトURL
+http://54.178.5.105/
 
 ## 設計書
 - [ER図](https://github.com/marika441/Poi/files/7962952/ER.pdf)
