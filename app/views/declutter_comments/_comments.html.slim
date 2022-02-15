@@ -9,8 +9,7 @@
       | ：
       = time_ago_in_words(declutter_comment.created_at)
       | 前
+      - if declutter_comment.user == current_user
+        = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
       p
-        = declutter_comment.comment
-        - if declutter_comment.user == current_user
-          = link_to "", declutter_declutter_comment_path(declutter_comment.declutter,declutter_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class: "btn fas fa-trash"
-        br
+        = simple_format(h(declutter_comment.comment))
