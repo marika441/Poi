@@ -16,7 +16,7 @@
      h2.card-title.text-center
       = @declutter.title
      .card-text.text-center
-      = @declutter.caption
+      = simple_format(h(@declutter.caption))
      .card-text.text-right
       = link_to user_path(@declutter.user.id) do
        = @declutter.user.name
