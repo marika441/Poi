@@ -8,19 +8,21 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = @declutter.bookmarks.new(user_id: current_user.id)
     @bookmark.save
-    redirect_back(fallback_location:root_path)
+    # render先にjsファイルを指定
+    render :bookmarks
   end
 
   def destroy
     @bookmark = @declutter.bookmarks.find_by(user_id: current_user.id)
     @bookmark.destroy
-    redirect_back(fallback_location:root_path)
+    # render先にjsファイルを指定
+    render :bookmarks
   end
-  
+
   private
-  
+
   def set_bookmark
     @declutter = Declutter.find(params[:declutter_id])
   end
-  
+
 end

@@ -12,7 +12,11 @@
       = render "likes/like-btn", declutter: @declutter
       | </div>
       p
-       = render "bookmarks/bookmark-btn", declutter: @declutter
+      | <div id="bookmark_btn
+      = @declutter.id
+      | ">
+      = render "bookmarks/bookmark-btn", declutter: @declutter
+      | </div>
      h2.card-title.text-center
       = @declutter.title
      .card-text.text-center
