@@ -29,4 +29,35 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       end
     end
   end
+
+  describe 'アソシエーションのテスト' do
+    context 'Declutterモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:declutters).macro).to eq :has_many
+      end
+    end
+    context 'Declutter_commentモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:declutter_comments).macro).to eq :has_many
+      end
+    end
+    context 'Likeモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:likes).macro).to eq :has_many
+      end
+    end
+    context 'Bookmarkモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(User.reflect_on_association(:bookmarks).macro).to eq :has_many
+      end
+    end
+    context 'Relationshipモデルとの関係' do
+      it '1:Nとなっている(follower_id)' do
+        expect(User.reflect_on_association(:relationships).macro).to eq :has_many
+      end
+      it '1:Nとなっている(followed_id)' do
+        expect(User.reflect_on_association(:reverse_of_relationships).macro).to eq :has_many
+      end
+    end
+  end
 end
