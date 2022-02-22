@@ -44,17 +44,17 @@ RSpec.describe 'Declutterモデルのテスト', type: :model do
         expect(Declutter.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-    context 'Declutter_commentsモデルとの関係' do
+    context 'Declutter_commentモデルとの関係' do
       it '1:Nとなっている' do
         expect(Declutter.reflect_on_association(:declutter_comments).macro).to eq :has_many
       end
     end
-    context 'Likesモデルとの関係' do
+    context 'Likeモデルとの関係' do
       it '1:Nとなっている' do
         expect(Declutter.reflect_on_association(:likes).macro).to eq :has_many
       end
     end
-    context 'Bookmarksモデルとの関係' do
+    context 'Bookmarkモデルとの関係' do
       it '1:Nとなっている' do
         expect(Declutter.reflect_on_association(:bookmarks).macro).to eq :has_many
       end
