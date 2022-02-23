@@ -31,5 +31,18 @@ describe 'ユーザーログイン前のテスト' do
         expect(page).to have_link about_link, href: homes_about_path
       end
     end
+
+    describe 'アバウト画面のテスト' do
+      before do
+        visit '/homes/about'
+      end
+
+      context '表示内容の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/homes/about'
+        end
+      end
+    end
+
   end
 end
