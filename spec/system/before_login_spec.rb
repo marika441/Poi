@@ -98,5 +98,37 @@ describe 'ユーザーログイン前のテスト' do
       end
     end
 
+    describe 'ユーザログイン' do
+      let(:user) { FactoryBot.create(:user) }
+
+      before do
+        visit new_user_session_path
+      end
+
+      context 'ログイン成功のテスト' do
+        before do
+          fill_in 'user[email]', with: user.email
+          fill_in 'user[password]', with: user.password
+          click_button 'Log in'
+        end
+
+        it 'ログイン後のリダイレクト先が、投稿一覧になっている' do
+          expect(current_path).to eq '/declutters'
+        end
+      end
+
+      context 'ログイン失敗のテスト' do
+        before do
+          fill_in 'user[email]', with: ''
+          fill_in 'user[password]', with: ''
+          click_button 'Log in'
+        end
+
+        it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+          expect(current_path).to eq '/users/sign_in'
+        end
+      end
+    end
+
   end
 end
