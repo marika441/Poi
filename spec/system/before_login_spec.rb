@@ -75,5 +75,28 @@ describe 'ユーザーログイン前のテスト' do
       end
     end
 
+    describe 'ユーザ新規登録のテスト' do
+      before do
+        visit new_user_registration_path
+      end
+
+      context '新規登録成功のテスト' do
+        before do
+          fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+          fill_in 'user[email]', with: Faker::Internet.email
+          fill_in 'user[password]', with: 'password'
+          fill_in 'user[password_confirmation]', with: 'password'
+        end
+
+        it '正しく新規登録される' do
+          expect { click_button 'Sign up' }.to change(User.all, :count).by(1)
+        end
+        it '新規登録後のリダイレクト先が、投稿一覧となっている' do
+          click_button 'Sign up'
+          expect(current_path).to eq '/declutters'
+        end
+      end
+    end
+
   end
 end
