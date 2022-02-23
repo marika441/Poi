@@ -44,5 +44,36 @@ describe 'ユーザーログイン前のテスト' do
       end
     end
 
+    describe 'ヘッダーのテスト: ログインしていない場合' do
+      before do
+        visit root_path
+      end
+
+      context 'リンクの内容を確認' do
+        subject { current_path }
+
+        it 'ロゴを押すと、トップ画面に遷移する' do
+          logo_link = find_all('a')[1].native.inner_text
+          click_link logo_link
+          is_expected.to eq '/'
+        end
+        it 'Sign Upを押すと、新規登録画面に遷移する' do
+          signup_link = find_all('a')[2].native.inner_text
+          click_link signup_link
+          is_expected.to eq '/users/sign_up'
+        end
+        it 'loginを押すと、ログイン画面に遷移する' do
+          login_link = find_all('a')[3].native.inner_text
+          click_link login_link
+          is_expected.to eq '/users/sign_in'
+        end
+        it 'Aboutを押すと、About画面に遷移する' do
+          about_link = find_all('a')[5].native.inner_text
+          click_link about_link
+          is_expected.to eq '/homes/about'
+        end
+      end
+    end
+
   end
 end
