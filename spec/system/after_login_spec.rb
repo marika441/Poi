@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe 'ユーザログイン後のテスト' do
   let(:user) { FactoryBot.create(:user) }
+  let!(:other_user) { FactoryBot.create(:user) }
+  let!(:declutter) { FactoryBot.create(:declutter, user: user) }
+  let!(:other_declutter) { FactoryBot.create(:declutter, user: other_user) }
 
   before do
     visit new_user_session_path
@@ -14,11 +17,6 @@ describe 'ユーザログイン後のテスト' do
     context 'リンクの内容を確認:' do
       subject { current_path }
 
-      it 'ロゴを押すと、トップ画面に遷移する' do
-        logo_link = find_all('a')[1].native.inner_text
-        click_link logo_link
-        is_expected.to eq '/'
-      end
       it 'Mypageを押すと、ユーザー詳細画面に遷移する' do
         mypage_link = find_all('a')[2].native.inner_text
         click_link mypage_link
@@ -43,6 +41,21 @@ describe 'ユーザログイン後のテスト' do
         users_link = find_all('a')[7].native.inner_text
         click_link users_link
         is_expected.to eq '/users'
+      end
+    end
+  end
+
+  describe '投稿一覧画面のテスト' do
+    before do
+      visit declutters_path
+    end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/declutters'
+      end
+      it '自分と他の人の画像のリンク先が正しい' do
+        expect(page).to have_link '', href: user_path(declutter.user)
+        expect(page).to have_link '', href: user_path(other_declutter.user)
       end
     end
   end
