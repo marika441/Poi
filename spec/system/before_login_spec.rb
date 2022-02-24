@@ -62,7 +62,7 @@ describe 'ユーザーログイン前のテスト' do
           click_link signup_link
           is_expected.to eq '/users/sign_up'
         end
-        it 'loginを押すと、ログイン画面に遷移する' do
+        it 'Log Inを押すと、ログイン画面に遷移する' do
           login_link = find_all('a')[3].native.inner_text
           click_link login_link
           is_expected.to eq '/users/sign_in'
