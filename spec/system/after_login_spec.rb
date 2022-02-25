@@ -57,6 +57,29 @@ describe 'ユーザログイン後のテスト' do
         expect(page).to have_link '', href: user_path(declutter.user)
         expect(page).to have_link '', href: user_path(other_declutter.user)
       end
+      it '自分の投稿と他の人の投稿画像のリンク先が正しい' do
+        expect(page).to have_link declutter.thing_image, href: declutter_path(declutter)
+        expect(page).to have_link other_declutter.thing_image, href: declutter_path(other_declutter)
+      end
+    end
+
+    context '投稿成功のテスト' do
+
+      before do
+        visit new_declutter_path
+        find('input[type="file"]').click
+        attach_file "declutter[thing_image]", "app/assets/images/logo.jpg"
+        fill_in 'declutter[title]', with: Faker::Lorem.characters(number: 5)
+        fill_in 'declutter[caption]', with: Faker::Lorem.characters(number: 20)
+      end
+
+      it '自分の新しい投稿が正しく保存される' do
+        expect { click_button '手放す' }.to change(user.declutters, :count).by(1)
+      end
+      it 'リダイレクト先が、投稿一覧画面になる' do
+        click_button '手放す'
+        expect(current_path).to eq '/declutters'
+      end
     end
   end
 end
