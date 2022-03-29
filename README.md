@@ -35,7 +35,8 @@
 ![モックアップ](https://user-images.githubusercontent.com/92457238/153755710-356c941c-499c-4f7e-b10c-a419a32bf4db.jpg)
 
 ## サイトURL
-http://54.178.5.105/
+~~http://54.178.5.105/~~
+現在は公開停止しております
 
 ## 設計書
 - [ER図](https://github.com/marika441/Poi/files/7962952/ER.pdf)
